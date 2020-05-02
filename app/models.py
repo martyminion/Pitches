@@ -15,6 +15,9 @@ class User(db.Model):
   comments = db.relationship('Comments',backref = 'user', lazy = 'dynamic')
   pitches = db.relationship('Pitches',backref = 'user', lazy = 'dynamic')
 
+  def __repr__(self):
+    return f'User {self.username}'
+
 class  Comments(db.Model):
   '''
   this class defines characteristics of a comment
@@ -37,6 +40,9 @@ class  Comments(db.Model):
     comments_list = comments.query.filter_by(pitch_id = id).all()
 
     return comments_list
+
+  def __repr__(self):
+    return f'Comment {self.comment}'
   
 class  Pitches(db.Model):
   '''
@@ -47,7 +53,7 @@ class  Pitches(db.Model):
   title = db.Column(db.String(255))
   pitch = db.Column(db.String)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-  category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
+  category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
 
   def save_pitches(self):
     db.session.add(self)
@@ -73,6 +79,9 @@ class  Pitches(db.Model):
 
   comments = db.relationship('Comments',backref = 'pitch', lazy = 'dynamic')
 
+  def __repr__(self):
+    return f'Pitch {self.title}'
+
 class Category(db.Model):
   '''
   this class defines the categories
@@ -83,3 +92,6 @@ class Category(db.Model):
   description = db.Column(db.String(255))
 
   pitches = db.relationship('Pitches',backref = 'category', lazy = 'dynamic')
+
+  def __repr__(self):
+    return f'Category {self.name}'

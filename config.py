@@ -3,7 +3,7 @@ class Config():
   '''
   defines the class that contains all general requirements
   '''
-  SQLALCHEMY_DATABASE_URI="postgresql+psycopg2://martin:kimani@localhost/watchlist"
+  SQLALCHEMY_DATABASE_URI="postgresql+psycopg2://martin:kimani@localhost/pitches"
 
 class ProdConfig(Config):
   DEBUG=False
