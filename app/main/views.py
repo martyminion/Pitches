@@ -8,5 +8,8 @@ def index():
   '''
   returns the index page and its data
   '''
-  message = "We have began"
-  return render_template('index.html',message = message)
+  pitches_funny = Pitches.get_pitches_by_category(1)
+  pitches_flirty = Pitches.get_pitches_by_category(2)
+
+  return render_template('index.html',flirty = pitches_flirty, funny = pitches_funny)
+

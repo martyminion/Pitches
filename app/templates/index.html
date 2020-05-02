@@ -2,5 +2,17 @@
 
 {%block content%}
  
+  {%for pitcht in funny%}
+    <h2>Because laughter heals the soul</h2>
+    <h3>{{pitcht.title}}</h3>
+    <p>{{pitcht.pitch}}</p>
+  {%endfor%}
+  <hr><hr>
+  
+  {%for pitcht in flirty%}
+    <h2>Because love makes the world go round</h2>
+    <h3>{{pitcht.title}}</h3>
+    <p>{{pitcht.pitch}}</p>
+  {%endfor%}
 
 {%endblock%}
