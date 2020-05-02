@@ -33,11 +33,11 @@ class  Comments(db.Model):
     db.session.commit()
 
   @classmethod
-  def get_comments(cls,id):
+  def get_comments_by_pitch(cls,id):
     '''
     function to retrieve comments based on the pitch_id
     '''
-    comments_list = comments.query.filter_by(pitch_id = id).all()
+    comments_list = Comments.query.filter_by(pitch_id = id).all()
 
     return comments_list
 
@@ -64,16 +64,16 @@ class  Pitches(db.Model):
     '''
     function to retrieve pitches based on the user_id
     '''
-    pitches_list = pitches.query.filter_by(user_id = id).all()
+    pitches_list = Pitches.query.filter_by(user_id = id).all()
 
     return pitches_list
 
   @classmethod
-  def get_pitches_by_category(cls,category):
+  def get_pitches_by_category(cls,categoryId):
     '''
     function to retrieve pitches based on the category
     '''
-    pitch_list = pitches.query.filter_by(category_id = category).all()
+    pitch_list = Pitches.query.filter_by(category_id = categoryId).all()
 
     return pitch_list
 
@@ -82,7 +82,7 @@ class  Pitches(db.Model):
   def __repr__(self):
     return f'Pitch {self.title}'
 
-class Category(db.Model):
+class  Category(db.Model):
   '''
   this class defines the categories
   '''
