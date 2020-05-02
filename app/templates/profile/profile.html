@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-lg-3 col-sm-6 col-xs-6">
+      <p>{{user.prof_pic}}</p>
+      <p>{{user.username}}</p>
+      <p>{{user.bio}}</p>
+    </div>
+    <div class="col-md-8 col-lg-9 col-sm-6 col-xs-6">
+      {%if userPitches%}
+        {%for upitch in userPitches%}
+          <h3> Title {{upitch.title}}</h3>
+          <p> Pitch :{{upitch.pitch}}</p>
+          <p> {{upitch.name}}</p>
+        {%endfor%}
+      {%else%}
+        <p>You have no pitches</p>
+      {%endif%}
+    </div>
+
+  </div>
+
+</div>
+{%endblock%}

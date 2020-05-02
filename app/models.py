@@ -55,6 +55,8 @@ class  Pitches(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
 
+  comments = db.relationship('Comments',backref = 'pitch', lazy = 'dynamic')
+
   def save_pitches(self):
     db.session.add(self)
     db.session.commit()
@@ -77,7 +79,7 @@ class  Pitches(db.Model):
 
     return pitch_list
 
-  comments = db.relationship('Comments',backref = 'pitch', lazy = 'dynamic')
+  
 
   def __repr__(self):
     return f'Pitch {self.title}'
@@ -91,7 +93,7 @@ class  Category(db.Model):
   name = db.Column(db.String(255))
   description = db.Column(db.String(255))
 
-  pitches = db.relationship('Pitches',backref = 'category', lazy = 'dynamic')
+  pitches = db.relationship('Pitches',backref = 'name', lazy = 'dynamic')
 
   def __repr__(self):
     return f'Category {self.name}'
