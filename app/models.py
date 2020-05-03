@@ -30,6 +30,9 @@ class User(UserMixin,db.Model):
     self.pass_secure = generate_password_hash(password)
 
   def verify_password(self,password):
+    '''
+    checks if the hash of the password entered matches the hash stored
+    '''
     return check_password_hash(self.pass_secure,password)
 
   @login_manager.user_loader

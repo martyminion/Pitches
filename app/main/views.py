@@ -2,7 +2,7 @@ from flask import render_template,redirect,request,url_for,abort
 from . import main
 from ..models import Pitches,User,Comments,Category
 from .. import db
-from flask_login import login_required
+from flask_login import login_required,current_user
 
 @main.route('/')
 def index():
@@ -15,6 +15,7 @@ def index():
   return render_template('index.html',flirty = pitches_flirty, funny = pitches_funny)
 
 @main.route('/user/<uname>')
+@login_required
 def profile(uname):
   '''
   defines the function to display a user profile

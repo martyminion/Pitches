@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,PasswordField,SubmitField,TextAreaField
+from wtforms import StringField,PasswordField,SubmitField,TextAreaField,BooleanField
 from wtforms import ValidationError
 from wtforms.validators import Required,Email,EqualTo
 from ..models import User
@@ -10,9 +10,9 @@ class RegistrationForm(FlaskForm):
   '''
   email = StringField('Please Enter Your Email Address', validators=[Required(),Email()])
   username = StringField('Enter a cool username',validators=[Required()])
-  bio = TextAreaField('Tell us a bit about yourseld')
+  bio = TextAreaField('Tell us a bit about your cool self')
   password = PasswordField('A password you can remember',validators=[Required(),EqualTo('password_confirm',message="Password must match")])
-  password_confirm = PasswordField('Can you remember your password'validators=[Required()])
+  password_confirm = PasswordField('Can you remember your password',validators=[Required()])
   submit = SubmitField('You can join us now')
 
   #custom validators
@@ -29,3 +29,12 @@ class RegistrationForm(FlaskForm):
     '''
     if User.query.filter_by(username = data_field.data).first():
       raise ValidationError("Shucks! This cool name is already taken")
+
+class LoginForm(FlaskForm):
+  '''
+  user login form
+  '''
+  email = StringField("Your Email Address",validators=[Required(),Email()])
+  password = PasswordField("Show us you remember your password",validators=[Required()])
+  remember = BooleanField('Remember me')
+  submit = SubmitField('Welcome Back')
