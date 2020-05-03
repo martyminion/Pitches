@@ -2,6 +2,7 @@ from flask import render_template,redirect,request,url_for,abort
 from . import main
 from ..models import Pitches,User,Comments,Category
 from .. import db
+from flask_login import login_required
 
 @main.route('/')
 def index():
