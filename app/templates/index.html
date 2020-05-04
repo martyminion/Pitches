@@ -1,14 +1,64 @@
 {%extends 'base.html'%}
+{%import 'macros.html' as macro%}
 
 {%block content%}
   <div class="container">
     <h2>Flirty</h2>
+    <div>
+      {%if flirty%}
+      {{macro.displayPitches(flirty)}}
+      {%else%}
+      <p>There are no flirty pitches</p>
+      {%endif%}
+    </div>
     <h2>StandUp</h2>
+    <div>
+      {%if standup%}
+      {{macro.displayPitches(standup)}}
+      {%else%}
+      <p>There are no standup pitches</p>
+      {%endif%}
+    </div>
     <h2>Religious</h2>
+    <div>
+      {%if religious%}
+      {{macro.displayPitches(religious)}}
+      {%else%}
+      <p>There are no religious pitches</p>
+      {%endif%}
+    </div>
     <h2>Product</h2>
+    <div>
+      {%if product%}
+      {{macro.displayPitches(product)}}
+      {%else%}
+      <p>There are no product pitches</p>
+      {%endif%}
+    </div>
     <h2>Interview</h2>
+    <div>
+      {%if interview%}
+      {{macro.displayPitches(interview)}}
+      {%else%}
+      <p>There are no interview pitches</p>
+      {%endif%}
+    </div>
     <h2>Zen</h2>
+    <div>
+      {%if zen%}
+      {{macro.displayPitches(zen)}}
+      {%else%}
+      <p>There are no zen pitches</p>
+      {%endif%}
+    </div>
     <h2>Anime</h2>
+    <div>
+      {%if anime%}
+      {{macro.displayPitches(anime)}}
+      {%else%}
+      <p>There are no anime pitches</p>
+      {%endif%}
+    </div>
 
   </div>
 
