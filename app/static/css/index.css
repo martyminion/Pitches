@@ -1,0 +1,44 @@
+.flirtyTitle{
+  font-family: 'Pacifico', cursive;
+}
+.AnimeTitle{
+  font-family: 'Shadows Into Light', cursive;
+}
+.ZenTitle{
+  font-family: 'Caveat', cursive;
+}
+.InterviewTitle{
+  font-family: 'Teko', sans-serif;
+}
+.ProductTitle{
+  font-family: 'Inconsolata', monospace;
+}
+.ReligiousTitle{
+  font-family: 'Cinzel', serif;
+
+}
+.StandUpTitle{
+  font-family: 'Indie Flower', cursive;
+}
+
+.card-title{
+  font-size: 25px;
+}
+.card-subtitle{
+  font-size: 20px;
+}
+.card-text{
+  font-size: 20px;
+}
+.blockquote-footer{
+  font-size: 20px;
+}
+.card-link{
+  font-size: 15px
+}
+.all{
+  font-family: 'Cinzel', serif;
+}
+.index{
+  background-color: #f7f7f2;
+}

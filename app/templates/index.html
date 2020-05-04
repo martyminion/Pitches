@@ -1,9 +1,15 @@
 {%extends 'base.html'%}
 {%import 'macros.html' as macro%}
 
+<!--Style Block-->
+{%block styles%}
+  {{super()}}
+  <link rel="stylesheet" href="{{url_for('static',filename = 'css/index.css')}}">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Cinzel&family=Inconsolata:wght@500&family=Indie+Flower&family=Pacifico&family=Shadows+Into+Light&family=Teko:wght@300&display=swap" rel="stylesheet">
+  {%endblock%}
 {%block content%}
-  <div class="container text-center">
-    <h2>Flirty</h2>
+  <div class="container text-center index">
+    <h2 class="flirtyTitle">Flirty</h2>
     <div id="flirty">
       {%if flirty%}
       {{macro.displayPitches(flirty)}}
@@ -11,7 +17,7 @@
       <p>There are no flirty pitches</p>
       {%endif%}
     </div>
-    <h2>StandUp</h2>
+    <h2 class="StandUpTitle">StandUp</h2>
     <div id="StandUp">
       {%if standup%}
       {{macro.displayPitches(standup)}}
@@ -19,7 +25,7 @@
       <p>There are no standup pitches</p>
       {%endif%}
     </div>
-    <h2>Religious</h2>
+    <h2 class="ReligiousTitle">Religious</h2>
     <div id="Religious">
       {%if religious%}
       {{macro.displayPitches(religious)}}
@@ -27,7 +33,7 @@
       <p>There are no religious pitches</p>
       {%endif%}
     </div>
-    <h2>Product</h2>
+    <h2 class="ProductTitle">Product</h2>
     <div id="Product">
       {%if product%}
       {{macro.displayPitches(product)}}
@@ -35,7 +41,7 @@
       <p>There are no product pitches</p>
       {%endif%}
     </div>
-    <h2>Interview</h2>
+    <h2 class='InterviewTitle'>Interview</h2>
     <div id="Interview">
       {%if interview%}
       {{macro.displayPitches(interview)}}
@@ -43,7 +49,7 @@
       <p>There are no interview pitches</p>
       {%endif%}
     </div>
-    <h2>Zen</h2>
+    <h2 class="ZenTitle">Zen</h2>
     <div id="Zen">
       {%if zen%}
       {{macro.displayPitches(zen)}}
@@ -51,7 +57,7 @@
       <p>There are no zen pitches</p>
       {%endif%}
     </div>
-    <h2>Anime</h2>
+    <h2 class='AnimeTitle'>Anime</h2>
     <div id="Anime">
       {%if anime%}
       {{macro.displayPitches(anime)}}
@@ -62,22 +68,3 @@
   </div>
 
   {%endblock%}
-
-
-<!-- <a href="{{url_for('main.upvote',pitch_id = pitcht.id)}}"><img src="../static/images/Selection_017.png" alt=""> Thumbs Up {{upvote_no}}</a> -->
-<!-- {%for pitcht in funny%}
-    <h2>Because laughter heals the soul</h2>
-    <h3>{{pitcht.title}}</h3>
-    <p>{{pitcht.pitch}}</p>
-    <p>{{pitcht.name}}</p>
-    <a href="{{url_for('main.pitch_comment',uname = current_user.username, pitchId = pitcht.id)}}">Give Feedback</a>
-  {%endfor%}
-  <hr><hr>
-  
-  {%for pitcht in flirty%}
-    <h2>Because love makes the world go round</h2>
-    <h3>{{pitcht.title}}</h3>
-    <p>{{pitcht.pitch}}</p>
-    <p>{{pitcht.name}}</p>
-    <a href="{{url_for('main.pitch_comment',uname = current_user.username,pitchId = pitcht.id)}}">Give Feedback</a>
-  {%endfor%} -->

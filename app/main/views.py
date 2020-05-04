@@ -136,3 +136,14 @@ def upvote(pitch_id):
   db.session.commit()
   
   return redirect(url_for('.index'))
+
+@main.route('/pitch/downvote/<int:pitch_id>')
+def downvote(pitch_id):
+  pitch = Pitches.query.filter_by(id = pitch_id).first()
+  
+  new_upvote_no = pitch.down_votes + 1
+  
+  pitch.down_votes = new_upvote_no
+  db.session.commit()
+  
+  return redirect(url_for('.index'))

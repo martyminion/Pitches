@@ -3,7 +3,7 @@
 {%macro displayPitches(pitchList)%}
 
   {%for singlePitch in pitchList%}
-  <div class="text-center">
+  <div class="text-center all">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{singlePitch.title}}</h5>
@@ -12,11 +12,10 @@
         <blockquote class="blockquote-footer">By {{singlePitch.username.username}}</blockquote>
         <a href="{{url_for('main.pitch_comment',uname = singlePitch.username.username, pitchId = singlePitch.id)}}" class="card-link">Give Feedback</a>
       </div>
-      <img src="../static/images/Selection_017.png" alt="Thumbs up" width="30" height="30">
-      <a href="{{url_for('main.upvote',pitch_id = singlePitch.id)}}">vote_up</a>
-      <p>{{singlePitch.up_votes}}</p>
-      <img src="../static/images/Selection_018.png" alt="Thumbs Down" width="30" height="30">
-      <p>{{singlePitch.down_votes}}</p>
+      <a href="{{url_for('main.upvote',pitch_id = singlePitch.id)}}"><img src="../static/images/Selection_017.png" alt="Thumbs up" width="35" height="35"></a>
+      <p class="blockquote-footer">{{singlePitch.up_votes}}</p>
+      <a href="{{url_for('main.downvote',pitch_id = singlePitch.id)}}"><img src="../static/images/Selection_018.png" alt="Thumbs Down" width="35" height="35"></a>
+      <p class="blockquote-footer">{{singlePitch.down_votes}}</p>
     </div>
   </div>
   {%endfor%}
