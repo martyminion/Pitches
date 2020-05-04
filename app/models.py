@@ -83,6 +83,8 @@ class  Pitches(db.Model):
   pitch = db.Column(db.String)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
+  up_votes = db.Column(db.Integer)
+  down_votes = db.Column(db.Integer)
 
   comments = db.relationship('Comments',backref = 'pitch', lazy = 'dynamic')
 
@@ -107,8 +109,21 @@ class  Pitches(db.Model):
     pitch_list = Pitches.query.filter_by(category_id = categoryId).all()
 
     return pitch_list
+  @classmethod
+  def get_upvotes(cls,pitch_id):
+    '''
+    gets the upvotes of a particular pitch
+    '''
+    upvotes_number = Pitches.query.filter_by(id = pitch_id).first()
+    return upvotes_number.up_votes
 
-  
+  @classmethod
+  def get_downvotes(cls,pitch_id):
+    '''
+    gets the downvotes of a particular pitch
+    '''
+    downvotes_number = Pitches.query.filter_by(id = pitch_id).first()
+    return downvotes_number.down_votes
 
   def __repr__(self):
     return f'Pitch {self.title}'

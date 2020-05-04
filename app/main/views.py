@@ -3,14 +3,15 @@ from . import main
 from ..models import Pitches,User,Comments,Category
 from .. import db
 from flask_login import login_required,current_user
+from .forms import UpdateProfile
 
 @main.route('/')
 def index():
   '''
   returns the index page and its data which is the pitches arranged by category
   '''
-  pitches_funny = Pitches.get_pitches_by_category(1)
-  pitches_flirty = Pitches.get_pitches_by_category(2)
+  pitches_funny = Pitches.get_pitches_by_category(2)
+  pitches_flirty = Pitches.get_pitches_by_category(1)
 
   return render_template('index.html',flirty = pitches_flirty, funny = pitches_funny)
 
@@ -33,3 +34,36 @@ def profile(uname):
   
 
   return render_template('profile/profile.html',user = user, userPitches = pitches_uname)
+
+
+@main.route('/user/<uname>/update',methods = ['GET','POST'])
+@login_required
+def bio_update(uname):
+  user = User.query.filter_by(username = uname).first()
+  if user is None:
+    abort(404)
+  
+  form = UpdateProfile()
+
+  if form.validate_on_submit():
+    user.bio = form.bio.data
+
+    db.session.add(user)
+    db.session.commit()
+    return redirect(url_for('.profile',uname = user.username))
+  return render_template('profile/update.html', form = form)
+
+# @main.route('/pitch/upvote/<int:pitch_id>')
+# @login_required
+# def upvote(pitch_id):
+
+#   pitch = Pitches.query.filter_by(id = pitch_id).first()
+#   
+#   # new_upvote_no = pitch.up_votes + 1
+#   # 
+#   # 
+#   # pitch.up_votes = new_upvote_no
+#   # db.session.add(pitch)
+#   # db.session.commit()
+  
+#   return redirect(url_for('.index')upvotes_no = new_upvote_no)

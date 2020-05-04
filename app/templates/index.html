@@ -1,11 +1,11 @@
 {%extends 'base.html'%}
 
 {%block content%}
- 
   {%for pitcht in funny%}
     <h2>Because laughter heals the soul</h2>
     <h3>{{pitcht.title}}</h3>
     <p>{{pitcht.pitch}}</p>
+    <p>{{pitcht.name}}</p>
   {%endfor%}
   <hr><hr>
   
@@ -13,6 +13,9 @@
     <h2>Because love makes the world go round</h2>
     <h3>{{pitcht.title}}</h3>
     <p>{{pitcht.pitch}}</p>
+    <p>{{pitcht.name}}</p>
   {%endfor%}
-
 {%endblock%}
+
+
+<!-- <a href="{{url_for('main.upvote',pitch_id = pitcht.id)}}"><img src="../static/images/Selection_017.png" alt=""> Thumbs Up {{upvote_no}}</a> -->
