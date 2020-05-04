@@ -3,7 +3,8 @@ from . import main
 from ..models import Pitches,User,Comments,Category
 from .. import db,photos
 from flask_login import login_required,current_user
-from .forms import UpdateProfile
+from .forms import UpdateProfile,NewPitch
+import markdown2
 
 @main.route('/')
 def index():
@@ -64,6 +65,36 @@ def update_pic(uname):
     user.prof_pic = path
     db.session.commit()
   return redirect(url_for('main.profile',uname = uname))
+
+
+@main.route('/user/<uname>/new/pitch')
+@login_required
+def new_pitch(uname):
+  user = User.query.filter_by(username = uname).first()
+  if user is None:
+    abort(404)
+  form = NewPitch()
+
+  if form.validate_on_submit():
+    add_pitch = Pitches(title = form.title.data, pitch = form.pitch.data, category_id = form.category.data, user_id = user.id)
+    db.session.add(add_pitch)
+    db.session.commit()
+    return redirect(url_for('.profile',uname = uname))
+  
+  title = "New Pitch"
+  
+  return render_template('addPitch.html', title = title, form = form)
+
+@main.route('/pitch/<int:id>')
+def single_pitch(id):
+  pitchnew = Pitches.query.get(id)
+  if pitchnew is None:
+    abort(404)
+  
+  format_pitch = markdown2.markdown(pitchnew.pitch, extras=["code-friendly",'fenced_code_blocks'])
+
+  return render_template('pitch.html', pitchnew = pitchnew, format_pitch = format_pitch)
+
 # @main.route('/pitch/upvote/<int:pitch_id>')
 # @login_required
 # def upvote(pitch_id):

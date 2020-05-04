@@ -26,17 +26,16 @@
     <div class="col-md-8 col-lg-9 col-sm-6 col-xs-6">
       {%if userPitches%}
         {%for upitch in userPitches%}
-          <h3> Title {{upitch.title}}</h3>
-          <p> Pitch :{{upitch.pitch}}</p>
-          <p> {{upitch.name}}</p>
+          <h2> Title {{upitch.title}}</h2>
+          <h3> {{upitch.name}}</h3>
+          <h2><a href="{{url_for('main.single_pitch',id = upitch.id)}}"> View Pitch</a></h2>
         {%endfor%}
+        <p><a href="{{url_for('main.new_pitch',uname = user.username)}}"> Add a new Pitch</a></p>
       {%else%}
         <p>You have no pitches</p>
-        
+        <p><a href="{{url_for('main.new_pitch',uname = user.username)}}"> Add a Pitch</a></p>
       {%endif%}
     </div>
-
   </div>
-
 </div>
 {%endblock%}

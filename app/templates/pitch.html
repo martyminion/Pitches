@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+
+{%block content%}
+  <div class= 'container'>
+    <div class="card">
+      <div class="card-header">
+        {{pitchnew.title}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{pitchnew.name}}</h5>
+        <p class="card-text">{{format_pitch|safe}}</p>
+      </div>
+    </div>
+
+  </div>
+{%endblock%}
