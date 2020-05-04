@@ -1,8 +1,9 @@
-Hello {{user.username}}
+Hello {{user.username| capitalize}}
 
-Pitches Welcomes You
-You have joined the cool Squad and we'd like to congratulate you on that bold step. Take your time, make a pitch a pitc or 2, Comment to give feedback
-and above all HAVE FUN
+Welcome To Pitches
+
+You have joined the cool Squad and we'd like to congratulate you on that bold step. Take your time, make a pitch or 2,
+comment on other users' pitches to give feedback and above all HAVE FUN!!!
 
  From the Pitches Community
  May the Force Be With You
