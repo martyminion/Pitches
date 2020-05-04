@@ -11,6 +11,7 @@
         <p class="card-text">{{format_pitch|safe}}</p>
       </div>
     </div>
+    <a href="{{url_for('main.profile',uname = current_user.username)}}"><button class="btn">Go Back</button></a>
 
   </div>
 {%endblock%}

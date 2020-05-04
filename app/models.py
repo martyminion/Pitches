@@ -16,7 +16,7 @@ class User(UserMixin,db.Model):
   pass_secure = db.Column(db.String(255))
 
   comments = db.relationship('Comments',backref = 'user', lazy = 'dynamic')
-  pitches = db.relationship('Pitches',backref = 'user', lazy = 'dynamic')
+  pitches = db.relationship('Pitches',backref = 'username', lazy = 'dynamic')
 
   @property #creates a write only class
   def password(self):

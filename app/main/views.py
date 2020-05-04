@@ -67,7 +67,7 @@ def update_pic(uname):
   return redirect(url_for('main.profile',uname = uname))
 
 
-@main.route('/user/<uname>/new/pitch')
+@main.route('/user/<uname>/new/pitch',methods = ['GET','POST'])
 @login_required
 def new_pitch(uname):
   user = User.query.filter_by(username = uname).first()
@@ -87,12 +87,13 @@ def new_pitch(uname):
 
 @main.route('/pitch/<int:id>')
 def single_pitch(id):
+  
   pitchnew = Pitches.query.get(id)
   if pitchnew is None:
     abort(404)
   
   format_pitch = markdown2.markdown(pitchnew.pitch, extras=["code-friendly",'fenced_code_blocks'])
-
+  
   return render_template('pitch.html', pitchnew = pitchnew, format_pitch = format_pitch)
 
 # @main.route('/pitch/upvote/<int:pitch_id>')
