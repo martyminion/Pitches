@@ -84,7 +84,7 @@ def new_pitch(uname):
     categoryId = Category.get_categoryid(form.category.data)
     print("&"*50)
     print(categoryId)
-    add_pitch = Pitches(title = form.title.data, pitch = form.pitch.data, category_id = categoryId, user_id = user.id)
+    add_pitch = Pitches(title = form.title.data, pitch = form.pitch.data, category_id = categoryId, user_id = user.id,up_votes = 0,down_votes = 0)
     db.session.add(add_pitch)
     db.session.commit()
     return redirect(url_for('.profile',uname = uname))
@@ -126,17 +126,13 @@ def pitch_comment(uname,pitchId):
   return render_template('addcomment.html',title = title, form = form, CommentPitch = pitch,comment_list = comment_list)
 
 
-# @main.route('/pitch/upvote/<int:pitch_id>')
-# @login_required
-# def upvote(pitch_id):
-
-#   pitch = Pitches.query.filter_by(id = pitch_id).first()
-#   
-#   # new_upvote_no = pitch.up_votes + 1
-#   # 
-#   # 
-#   # pitch.up_votes = new_upvote_no
-#   # db.session.add(pitch)
-#   # db.session.commit()
+@main.route('/pitch/upvote/<int:pitch_id>')
+def upvote(pitch_id):
+  pitch = Pitches.query.filter_by(id = pitch_id).first()
   
-#   return redirect(url_for('.index')upvotes_no = new_upvote_no)
+  new_upvote_no = pitch.up_votes + 1
+  
+  pitch.up_votes = new_upvote_no
+  db.session.commit()
+  
+  return redirect(url_for('.index'))

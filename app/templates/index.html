@@ -2,9 +2,9 @@
 {%import 'macros.html' as macro%}
 
 {%block content%}
-  <div class="container">
+  <div class="container text-center">
     <h2>Flirty</h2>
-    <div>
+    <div id="flirty">
       {%if flirty%}
       {{macro.displayPitches(flirty)}}
       {%else%}
@@ -12,7 +12,7 @@
       {%endif%}
     </div>
     <h2>StandUp</h2>
-    <div>
+    <div id="StandUp">
       {%if standup%}
       {{macro.displayPitches(standup)}}
       {%else%}
@@ -20,7 +20,7 @@
       {%endif%}
     </div>
     <h2>Religious</h2>
-    <div>
+    <div id="Religious">
       {%if religious%}
       {{macro.displayPitches(religious)}}
       {%else%}
@@ -28,7 +28,7 @@
       {%endif%}
     </div>
     <h2>Product</h2>
-    <div>
+    <div id="Product">
       {%if product%}
       {{macro.displayPitches(product)}}
       {%else%}
@@ -36,7 +36,7 @@
       {%endif%}
     </div>
     <h2>Interview</h2>
-    <div>
+    <div id="Interview">
       {%if interview%}
       {{macro.displayPitches(interview)}}
       {%else%}
@@ -44,7 +44,7 @@
       {%endif%}
     </div>
     <h2>Zen</h2>
-    <div>
+    <div id="Zen">
       {%if zen%}
       {{macro.displayPitches(zen)}}
       {%else%}
@@ -52,14 +52,13 @@
       {%endif%}
     </div>
     <h2>Anime</h2>
-    <div>
+    <div id="Anime">
       {%if anime%}
       {{macro.displayPitches(anime)}}
       {%else%}
       <p>There are no anime pitches</p>
       {%endif%}
     </div>
-
   </div>
 
   {%endblock%}

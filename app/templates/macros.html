@@ -10,10 +10,14 @@
         <h6 class="card-subtitle mb-2 text-muted">Category: {{singlePitch.name.name}}</h6>
         <p class="card-text">{{singlePitch.pitch|truncate(200)}}</p>
         <blockquote class="blockquote-footer">By {{singlePitch.username.username}}</blockquote>
-        <a href="{{url_for('main.pitch_comment',uname = current_user.username, pitchId = pitcht.id)}}" class="card-link">Give Feedback</a>
+        <a href="{{url_for('main.pitch_comment',uname = singlePitch.username.username, pitchId = singlePitch.id)}}" class="card-link">Give Feedback</a>
       </div>
-      <a href="{{url_for('main.upvote',pitch_id = pitcht.id)}}"><img src="../static/images/Selection_017.png" alt="" width="30" height="30"> Thumbs Up {{upvote_no}}</a>
+      <img src="../static/images/Selection_017.png" alt="Thumbs up" width="30" height="30">
+      <a href="{{url_for('main.upvote',pitch_id = singlePitch.id)}}">vote_up</a>
+      <p>{{singlePitch.up_votes}}</p>
+      <img src="../static/images/Selection_018.png" alt="Thumbs Down" width="30" height="30">
+      <p>{{singlePitch.down_votes}}</p>
     </div>
   </div>
   {%endfor%}
-  {%endmacro}
+  {%endmacro%}
