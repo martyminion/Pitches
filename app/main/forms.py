@@ -20,3 +20,10 @@ class NewPitch(FlaskForm):
   category = IntegerField('Enter Category ID',validators=[Required()])
   pitch = TextAreaField('You have one minute to be awesome..')
   submit = SubmitField('Add')
+
+class NewComment(FlaskForm):
+  '''
+  adds a new comment
+  '''
+  comment = TextAreaField('Be Nice with Feedback',validators=[Required()])
+  submit = SubmitField('Add')

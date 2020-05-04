@@ -3,7 +3,7 @@ from . import main
 from ..models import Pitches,User,Comments,Category
 from .. import db,photos
 from flask_login import login_required,current_user
-from .forms import UpdateProfile,NewPitch
+from .forms import UpdateProfile,NewPitch,NewComment
 import markdown2
 
 @main.route('/')
@@ -86,6 +86,7 @@ def new_pitch(uname):
   return render_template('addPitch.html', title = title, form = form)
 
 @main.route('/pitch/<int:id>')
+@login_required
 def single_pitch(id):
   
   pitchnew = Pitches.query.get(id)
@@ -95,6 +96,25 @@ def single_pitch(id):
   format_pitch = markdown2.markdown(pitchnew.pitch, extras=["code-friendly",'fenced_code_blocks'])
   
   return render_template('pitch.html', pitchnew = pitchnew, format_pitch = format_pitch)
+
+@main.route('/<int:pitchId>/<uname>/comment',methods=['GET','POST'])
+@login_required
+def pitch_comment(uname,pitchId):
+  user = User.query.filter_by(username = uname).first()
+  pitch = Pitches.query.filter_by(id = pitchId).first()
+  if user is None:
+    abort(404)
+  form = NewComment()
+
+  if form.validate_on_submit():
+    new_comment = Comments(comment = form.comment.data, user_id = user.id, pitch_id = pitchId)
+    db.session.add(new_comment)
+    db.session.commit()
+    return redirect(url_for('.index'))
+  
+  title = "New Comment"
+  return render_template('addcomment.html',title = title, form = form, CommentPitch = pitch)
+
 
 # @main.route('/pitch/upvote/<int:pitch_id>')
 # @login_required
