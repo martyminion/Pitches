@@ -10,7 +10,7 @@
         <h6 class="card-subtitle mb-2 text-muted">Category: {{singlePitch.name.name}}</h6>
         <p class="card-text">{{singlePitch.pitch|truncate(200)}}</p>
         <blockquote class="blockquote-footer">By {{singlePitch.username.username}}</blockquote>
-        <a href="{{url_for('main.pitch_comment',uname = singlePitch.username.username, pitchId = singlePitch.id)}}" class="card-link">Give Feedback</a>
+        <a href="{{url_for('main.pitch_comment',uname = singlePitch.username.username, pitchId = singlePitch.id)}}" class="btn">Give Feedback</a>
       </div>
       <a href="{{url_for('main.upvote',pitch_id = singlePitch.id)}}"><img src="../static/images/icons8-thumbs-up-64.png" alt="Thumbs up" width="35" height="35"></a>
       <p class="blockquote-footer">{{singlePitch.up_votes}}</p>

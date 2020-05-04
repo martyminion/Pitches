@@ -7,7 +7,7 @@
   {%endblock%}
 
 {%block content%}
-<div class="container profile">
+<div class="container profile text-center">
   <div class="row">
     <div class="col-md-4 col-lg-3 col-sm-6 col-xs-6">
       {%if user.prof_pic%}
@@ -16,9 +16,9 @@
       <p>No Profile Picture</p>
       {%endif%}
       
-      <p>{{user.username| capitalize}}</p>
+      <p class="username">{{user.username| capitalize}}</p>
       {%if user == current_user%}
-      <p>{{user.bio}}</p>
+      <p class ="userbio" >{{user.bio}}</p>
       <a href="{{url_for('main.bio_update', uname = user.username)}}">Update Bio</a>
       {%endif%}
       {%if user == current_user%}
@@ -33,7 +33,7 @@
       {%if userPitches%}
         <h2>Your Pitches: </h2>
         {%for upitch in userPitches%}
-          <h3> Title:{{upitch.title}}</h3>
+          <h3 class="pitchTitle"> Title:{{upitch.title}}</h3>
           <cite class="blockquote-footer">Category: {{upitch.name.name}}</cite>
           <h4><a href="{{url_for('main.single_pitch',id = upitch.id)}}"> View Pitch</a></h4>
         {%endfor%}

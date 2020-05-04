@@ -1,3 +1,19 @@
 body{
-  background-color: #FABC2A;
+  background-color: #f7f7f2;
+}
+.username{
+  font-family: 'Pacifico', cursive;
+  font-size: 35px;
+}
+.userbio{
+  font-family: 'Caveat', cursive;
+  font-size: 25px;
+}
+a{
+  font-family: 'Teko', sans-serif;
+  font-size: x-large;
+}
+.pitchTitle{
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
 }
