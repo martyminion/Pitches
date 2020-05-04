@@ -11,12 +11,20 @@
         <div class="card-body">
           <blockquote class="blockquote mb-0">
             <p>{{CommentPitch.pitch}}</p>
-            <footer class="blockquote-footer">Author<cite title="Source Title">{{CommentPitch.username}}</cite></footer>
+            <footer class="blockquote-footer">Author: <cite title="Source Title">{{CommentPitch.username.username}}</cite></footer>
           </blockquote>
         </div>
       </div>
     </div>
     <div class="col-md-6">
+      {%for commentP in comment_list%}
+     <div class="text-center">
+       <blockquote>{{commentP.comment}}</blockquote>
+       <footer class="blockquote-footer">{{commentP.username.username}}</footer>
+     </div>
+      {%endfor%}
+        
+      <h3>Add a Comment</h3>
       {{wtf.quick_form(form)}}
     </div>
     <div class="col-md-2"></div>

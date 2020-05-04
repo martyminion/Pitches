@@ -15,7 +15,7 @@ class User(UserMixin,db.Model):
   bio = db.Column(db.String(255))
   pass_secure = db.Column(db.String(255))
 
-  comments = db.relationship('Comments',backref = 'user', lazy = 'dynamic')
+  comments = db.relationship('Comments',backref = 'username', lazy = 'dynamic')
   pitches = db.relationship('Pitches',backref = 'username', lazy = 'dynamic')
 
   @property #creates a write only class

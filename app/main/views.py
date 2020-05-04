@@ -111,9 +111,11 @@ def pitch_comment(uname,pitchId):
     db.session.add(new_comment)
     db.session.commit()
     return redirect(url_for('.index'))
+
+  comment_list = Comments.get_comments_by_pitch(pitchId)
   
   title = "New Comment"
-  return render_template('addcomment.html',title = title, form = form, CommentPitch = pitch)
+  return render_template('addcomment.html',title = title, form = form, CommentPitch = pitch,comment_list = comment_list)
 
 
 # @main.route('/pitch/upvote/<int:pitch_id>')
