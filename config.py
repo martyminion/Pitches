@@ -5,6 +5,7 @@ class Config():
   '''
   SQLALCHEMY_DATABASE_URI="postgresql+psycopg2://martin:kimani@localhost/pitches"
   SECRET_KEY = 'ghostRider'
+  UPLOADED_PHOTOS_DEST = 'app/static/images'
 class ProdConfig(Config):
   DEBUG=False
 
