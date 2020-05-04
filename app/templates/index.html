@@ -1,7 +1,22 @@
 {%extends 'base.html'%}
 
 {%block content%}
-  {%for pitcht in funny%}
+  <div class="container">
+    <h2>Flirty</h2>
+    <h2>StandUp</h2>
+    <h2>Religious</h2>
+    <h2>Product</h2>
+    <h2>Interview</h2>
+    <h2>Zen</h2>
+    <h2>Anime</h2>
+
+  </div>
+
+  {%endblock%}
+
+
+<!-- <a href="{{url_for('main.upvote',pitch_id = pitcht.id)}}"><img src="../static/images/Selection_017.png" alt=""> Thumbs Up {{upvote_no}}</a> -->
+<!-- {%for pitcht in funny%}
     <h2>Because laughter heals the soul</h2>
     <h3>{{pitcht.title}}</h3>
     <p>{{pitcht.pitch}}</p>
@@ -16,8 +31,4 @@
     <p>{{pitcht.pitch}}</p>
     <p>{{pitcht.name}}</p>
     <a href="{{url_for('main.pitch_comment',uname = current_user.username,pitchId = pitcht.id)}}">Give Feedback</a>
-  {%endfor%}
-{%endblock%}
-
-
-<!-- <a href="{{url_for('main.upvote',pitch_id = pitcht.id)}}"><img src="../static/images/Selection_017.png" alt=""> Thumbs Up {{upvote_no}}</a> -->
+  {%endfor%} -->

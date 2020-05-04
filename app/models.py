@@ -139,5 +139,14 @@ class  Category(db.Model):
 
   pitches = db.relationship('Pitches',backref = 'name', lazy = 'dynamic')
 
+  @classmethod
+  def get_categoryid(cls,categoryname):
+    '''
+    returns the category id on getting a category name
+    '''
+    category_id = Category.query.filter_by(name = categoryname ).first()
+
+    return category_id.id
+
   def __repr__(self):
     return f'Category {self.name}'

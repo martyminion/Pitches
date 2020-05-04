@@ -25,10 +25,11 @@
     </div>
     <div class="col-md-8 col-lg-9 col-sm-6 col-xs-6">
       {%if userPitches%}
+        <h2>Your Pitches: </h2>
         {%for upitch in userPitches%}
-          <h2> Title {{upitch.title}}</h2>
-          <h3> {{upitch.name}}</h3>
-          <h2><a href="{{url_for('main.single_pitch',id = upitch.id)}}"> View Pitch</a></h2>
+          <h3> Title:{{upitch.title}}</h3>
+          <cite class="blockquote-footer">Category: {{upitch.name.name}}</cite>
+          <h4><a href="{{url_for('main.single_pitch',id = upitch.id)}}"> View Pitch</a></h4>
         {%endfor%}
         <p><a href="{{url_for('main.new_pitch',uname = user.username)}}"> Add a new Pitch</a></p>
       {%else%}

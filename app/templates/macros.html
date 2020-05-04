@@ -1,0 +1,19 @@
+
+<!--Display Pitches per category-->
+{%macro displayPitches(pitchList)}
+
+  {%for singlePitch in pitchList%}
+  <div class="text-center">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{singlePitch.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Category: {{singlePitch.name.name}}</h6>
+        <p class="card-text">{{singlePitch.pitch|truncate(200)}}</p>
+        <blockquote class="blockquote-footer">By {{singlePitch.username.username}}</blockquote>
+        <a href="{{url_for('main.pitch_comment',uname = current_user.username, pitchId = pitcht.id)}}" class="card-link">Give Feedback</a>
+      </div>
+      <a href="{{url_for('main.upvote',pitch_id = pitcht.id)}}"><img src="../static/images/Selection_017.png" alt="" width="30" height="30"> Thumbs Up {{upvote_no}}</a>
+    </div>
+  </div>
+  {%endfor%}
+  {%endmacro}
