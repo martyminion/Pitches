@@ -12,9 +12,9 @@
         <blockquote class="blockquote-footer">By {{singlePitch.username.username}}</blockquote>
         <a href="{{url_for('main.pitch_comment',uname = singlePitch.username.username, pitchId = singlePitch.id)}}" class="card-link">Give Feedback</a>
       </div>
-      <a href="{{url_for('main.upvote',pitch_id = singlePitch.id)}}"><img src="../static/images/Selection_017.png" alt="Thumbs up" width="35" height="35"></a>
+      <a href="{{url_for('main.upvote',pitch_id = singlePitch.id)}}"><img src="../static/images/icons8-thumbs-up-64.png" alt="Thumbs up" width="35" height="35"></a>
       <p class="blockquote-footer">{{singlePitch.up_votes}}</p>
-      <a href="{{url_for('main.downvote',pitch_id = singlePitch.id)}}"><img src="../static/images/Selection_018.png" alt="Thumbs Down" width="35" height="35"></a>
+      <a href="{{url_for('main.downvote',pitch_id = singlePitch.id)}}"><img src="../static/images/icons8-thumbs-down-64.png" alt="Thumbs Down" width="35" height="35"></a>
       <p class="blockquote-footer">{{singlePitch.down_votes}}</p>
     </div>
   </div>

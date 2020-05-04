@@ -1,0 +1,16 @@
+.navXtics{
+  background-color: #bd93bd;
+  border-radius: 20px;
+}
+.navimage{
+  width: 70px;
+  height: 50px;
+  margin: 5px;
+}
+.dropdown-item{
+  font-family: 'Teko', sans-serif;
+  font-size: 20px;
+}
+.dropdown-menu{
+  background-color: #f7f7;
+}
