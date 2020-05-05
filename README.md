@@ -35,6 +35,8 @@
 
 ## Known Bugs
   Navigation to categories from profile page
+  Live site throws an error on register, but that is due to Google security policies on less secure apps, it however
+  does not stop the user from being added, thus on sign in you will get access to the app
 
 ## Technologies used
 * CSS for Styling

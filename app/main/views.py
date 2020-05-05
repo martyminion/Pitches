@@ -12,7 +12,7 @@ def index():
   '''
   returns the index page and its data which is the pitches arranged by category
   '''
-  pitches_flirty = Pitches.get_pitches_by_category(1)
+  pitches_flirty = Pitches.get_pitches_by_category(1) #start from 3 for local to work
   pitches_standup = Pitches.get_pitches_by_category(2)
   pitches_religious = Pitches.get_pitches_by_category(3)
   pitches_product = Pitches.get_pitches_by_category(4)
