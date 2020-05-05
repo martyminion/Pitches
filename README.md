@@ -31,7 +31,7 @@
 * On terminal make start.sh an executable file "chmod a+x start.sh"
 * On terminal run ./start.sh
 * Access the localhost from browser at localhost:5000
-* You can also acess a live site at: 
+* You can also acess a live site at: https://martypitches.herokuapp.com/
 
 ## Known Bugs
   Navigation to categories from profile page
