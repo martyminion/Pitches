@@ -4,7 +4,6 @@ class Config():
   '''
   defines the class that contains all general requirements
   '''
-  SQLALCHEMY_DATABASE_URI="postgresql+psycopg2://martin:kimani@localhost/pitches"
   SECRET_KEY = os.environ.get('SECRET_KEY')
   UPLOADED_PHOTOS_DEST = 'app/static/images'
 
@@ -21,10 +20,11 @@ class ProdConfig(Config):
   DEBUG=False
 
 class DevConfig(Config):
+  SQLALCHEMY_DATABASE_URI="postgresql+psycopg2://martin:kimani@localhost/pitches"
   DEBUG=True
 
 class TestConfig(Config):
-  pass
+  SQLALCHEMY_DATABASE_URI="postgresql+psycopg2://martin:kimani@localhost/pitches_test"
 config_options = {
   'development':DevConfig,
   'production' :ProdConfig,

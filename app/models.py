@@ -2,7 +2,7 @@ from . import db
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
 from . import login_manager
-
+from sqlalchemy import desc
 class User(UserMixin,db.Model):
   '''
   this class defines the user characteristics
@@ -97,7 +97,8 @@ class  Pitches(db.Model):
     '''
     function to retrieve pitches based on the user_id
     '''
-    pitches_list = Pitches.query.filter_by(user_id = id).all()
+    pitches_list = Pitches.query.filter_by(user_id = id).order_by(desc(Pitches.id)).all()
+   
 
     return pitches_list
 
@@ -106,7 +107,8 @@ class  Pitches(db.Model):
     '''
     function to retrieve pitches based on the category
     '''
-    pitch_list = Pitches.query.filter_by(category_id = categoryId).all()
+
+    pitch_list = Pitches.query.filter_by(category_id = categoryId).order_by(desc(Pitches.id)).all()
 
     return pitch_list
   @classmethod

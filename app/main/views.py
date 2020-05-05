@@ -5,6 +5,7 @@ from .. import db,photos
 from flask_login import login_required,current_user
 from .forms import UpdateProfile,NewPitch,NewComment
 import markdown2
+from sqlalchemy import desc
 
 @main.route('/')
 def index():

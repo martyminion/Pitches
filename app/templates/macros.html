@@ -7,7 +7,7 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{singlePitch.title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Category: {{singlePitch.name.name}}</h6>
+        <h6 class="card-subtitle mb-2 ">Category: {{singlePitch.name.name}}</h6>
         <p class="card-text">{{singlePitch.pitch|truncate(200)}}</p>
         <blockquote class="blockquote-footer">By {{singlePitch.username.username}}</blockquote>
         <a href="{{url_for('main.pitch_comment',uname = singlePitch.username.username, pitchId = singlePitch.id)}}" class="btn">Give Feedback</a>
