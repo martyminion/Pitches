@@ -83,8 +83,6 @@ def new_pitch(uname):
 
   if form.validate_on_submit():
     categoryId = Category.get_categoryid(form.category.data)
-    print("&"*50)
-    print(categoryId)
     add_pitch = Pitches(title = form.title.data, pitch = form.pitch.data, category_id = categoryId, user_id = user.id,up_votes = 0,down_votes = 0)
     db.session.add(add_pitch)
     db.session.commit()
