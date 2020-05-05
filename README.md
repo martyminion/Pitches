@@ -22,7 +22,7 @@
   . update their bio
   . view their pitches
 
-## Setup/Installatio Requirements
+## Setup/Installation Requirements
 * Basic Git commands/knowledge
 * Fork the repo to your fithub account
 * Clone the project into your local directory
