@@ -9,13 +9,15 @@ class TestUser(unittest.TestCase):
     '''
     this runs at the beginning of every test, sets Up the user instance
     '''
-    self.user_John = User(username = " John", email='John@gmail.com', prof_pic="profilepic/path",bio = 'This is just the beginning',password = 'potato' )
-
+    self.user_John = User(username = "John", email='John@gmail.com', prof_pic="profilepic/path",bio = 'This is just the beginning',password = 'potato' )
+    db.session.add(self.user_John)
+    db.session.commit()
   def tearDown(self):
     '''
     runs to clear the information, dletes all the information after the test is done
     '''
-    User.query.delete()
+    delete = User.query.delete()
+    db.session.commit()
 
   def test_password_setter(self):
     self.assertTrue(self.user_John.pass_secure is not None)
@@ -30,7 +32,7 @@ class TestUser(unittest.TestCase):
     self.assertEquals(self.user_John.bio,"This is just the beginning")
     self.assertTrue(self.user_John.verify_password('potato'))
   
-  def test_no_access_passsword():
+  def test_no_access_passsword(self):
     with self.assertRaises(AttributeError):
       self.user_John.password
 
