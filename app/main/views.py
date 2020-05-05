@@ -12,13 +12,13 @@ def index():
   '''
   returns the index page and its data which is the pitches arranged by category
   '''
-  pitches_flirty = Pitches.get_pitches_by_category(3)
-  pitches_standup = Pitches.get_pitches_by_category(4)
-  pitches_religious = Pitches.get_pitches_by_category(5)
-  pitches_product = Pitches.get_pitches_by_category(6)
-  pitches_interview = Pitches.get_pitches_by_category(7)
-  pitches_zen = Pitches.get_pitches_by_category(8)
-  pitches_Anime = Pitches.get_pitches_by_category(9)
+  pitches_flirty = Pitches.get_pitches_by_category(1)
+  pitches_standup = Pitches.get_pitches_by_category(2)
+  pitches_religious = Pitches.get_pitches_by_category(3)
+  pitches_product = Pitches.get_pitches_by_category(4)
+  pitches_interview = Pitches.get_pitches_by_category(5)
+  pitches_zen = Pitches.get_pitches_by_category(6)
+  pitches_Anime = Pitches.get_pitches_by_category(7)
 
   return render_template('index.html',anime = pitches_Anime, zen = pitches_zen,flirty = pitches_flirty, standup = pitches_standup,religious = pitches_religious,product= pitches_product,interview = pitches_interview)
 
